@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
         xpError.setOnTouchListener(new View.OnTouchListener() {
             float dx, dy, frameX, frameLeftX;
+            int i = 0;
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()){
+                switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         frameX = event.getX();
                         frameLeftX = v.getWidth() - frameX;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         dy = event.getRawY() - v.getY();
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        if((event.getRawX() + frameLeftX) < X && (event.getRawX() - frameX) > 0){
+                        if ((event.getRawX() + frameLeftX) < X && (event.getRawX() - frameX) > 0) {
                             v.animate()
                                     .x(event.getRawX() - dx)
                                     .y(event.getRawY() - dy)
@@ -52,12 +54,20 @@ public class MainActivity extends AppCompatActivity {
                         layoutParams.setMargins(Math.round((event.getRawX() - dx)), Math.round((event.getRawY() - dy)), 0, 0);
                         clone.setLayoutParams(layoutParams);
                         myLayout.addView(clone);
+                        i++;
+                        if(i==100)
+                            setContentView(R.layout.bdos);
                         break;
                 }
                 return true;
             }
         });
     }
+
+    public void mycomp(View view){
+        xpError.setVisibility(View.VISIBLE);
+    }
+
     private void initView() {
         myLayout = (RelativeLayout) findViewById(R.id.main);
         xpError = (ImageView) findViewById(R.id.xpError);

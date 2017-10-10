@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.pc.tests.MainActivity"
-    android:background="@color/colorPrimaryDark"
-    android:id="@+id/main">
+    android:background="@drawable/windows"
+    android:id="@+id/main"
+    >
 
     <ImageView
         android:layout_width="wrap_content"
@@ -15,6 +16,21 @@
         android:src="@drawable/xperror"
         android:elevation="10dp"
         android:id="@+id/xpError"
+        android:visibility="gone"
         />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/mycomp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/mycomp"
+        android:onClick="mycomp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Computer"
+        android:layout_below="@+id/mycomp"
+        android:textStyle="bold"/>
 
 </RelativeLayout>
