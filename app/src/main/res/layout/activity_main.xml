@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.pc.tests.MainActivity"
     android:background="@drawable/windows"
-    android:id="@+id/main"
-    >
+    android:id="@+id/main">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -24,7 +23,7 @@
         android:id="@+id/mycomp"
         android:layout_marginStart="15dp"
         android:src="@drawable/mycomp"
-        android:onClick="mycomp"
+        android:onClick="myComp"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -32,6 +31,6 @@
         android:text="My Computer"
         android:layout_below="@+id/mycomp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        />
 
 </RelativeLayout>

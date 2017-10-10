@@ -1,5 +1,6 @@
 package com.example.pc.tests;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -66,8 +67,11 @@ public class MainActivity extends AppCompatActivity {
                         clone.setLayoutParams(layoutParams);
                         myLayout.addView(clone);
                         i++;
-                        if(i==120)
+                        if(i==120) {
+                            MediaPlayer twoPlayer = MediaPlayer.create(MainActivity.this, R.raw.two);
+                            twoPlayer.start();
                             setContentView(R.layout.bdos);
+                        }
                         break;
                 }
                 return true;
@@ -75,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void mycomp(View view){
+    public void myComp(View view){
+        MediaPlayer onePlayer = MediaPlayer.create(MainActivity.this, R.raw.one);
+        onePlayer.start();
         xpError.setVisibility(View.VISIBLE);
     }
 
