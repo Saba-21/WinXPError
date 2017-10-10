@@ -6,6 +6,8 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -20,8 +22,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_main);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         initView();
 
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -55,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         clone.setLayoutParams(layoutParams);
                         myLayout.addView(clone);
                         i++;
-                        if(i==100)
+                        if(i==120)
                             setContentView(R.layout.bdos);
                         break;
                 }
